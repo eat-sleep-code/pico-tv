@@ -288,6 +288,12 @@ class Player:
                 self._disp.blit_buffer(frame_buf, x, y, vid_w, vid_h)
             _t_blit += _ticks_diff(_ticks_ms(), _ta)
 
+            # Service audio immediately after the blit (the longest blocking step)
+            # so chunk-swap detection happens mid-frame rather than waiting a full
+            # frame period — halves the swap gap from ~140 ms to ~70 ms.
+            if self._audio and self._audio.is_open:
+                self._audio.write_samples(0)
+
             frame_idx += 1
 
             # ── feed audio (plays in the background; this keeps its chunks fed) ──
