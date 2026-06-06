@@ -8,7 +8,7 @@ Usage
 -----
   python convert.py clip.mp4 --category cartoons
   python convert.py clip.mp4 --category cartoons --compress-level 9
-  python convert.py clip.mp4 --category cartoons --width 320 --height 240 --fps 8
+  python convert.py clip.mp4 --category cartoons --width 320 --height 240 --fps 7
   python convert.py clip.mp4 --out /Volumes/SD/videos/cartoons --name "My Show"
   python convert.py clip.mp4 --raw           # uncompressed RGB565 (large, no decompression)
 
@@ -127,7 +127,7 @@ def _iter_jpeg_frames(proc_stdout):
 
 
 def convert_video(input_path, output_dir, name=None,
-                  width=320, height=240, fps=8,
+                  width=320, height=240, fps=7,
                   remove_bars=False, audio_rate=16000,
                   deflate_compress=True, compress_level=6,
                   mjpeg=False, jpeg_quality=75):
@@ -288,7 +288,7 @@ def main():
                     help='Frame width in pixels (default 320 = full display)')
     ap.add_argument('--height', type=int, default=240,
                     help='Frame height in pixels (default 240 = full display, 4:3)')
-    ap.add_argument('--fps',    type=int, default=8)
+    ap.add_argument('--fps', type=int, default=7)
     ap.add_argument('--remove-bars', action='store_true',
                     help='Attempt to auto-crop letterbox / pillarbox bars')
     ap.add_argument('--audio-rate', type=int, default=16000,

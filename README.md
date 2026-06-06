@@ -181,7 +181,7 @@ python tools/convert.py film.mp4 --category movies
 python tools/convert.py film.mp4 --category movies --removeVerticalBars
 
 # Custom resolution / fps
-python tools/convert.py clip.mp4 --category news --width 240 --height 135 --fps 15
+python tools/convert.py clip.mp4 --category news --width 240 --height 135 --fps 10
 ```
 
 Output goes to `./output/<category>/`. Copy the folder contents to
@@ -256,9 +256,9 @@ Offset  Bytes  Field
 | `0x04`  | 4-byte BE length prefix + JPEG data per frame        |
 | `0x08`  | 4-byte BE length prefix + zlib-compressed RGB565     |
 
-Default target: **320×240 @ 10 fps** → 153,600 bytes/frame → ~1.5 MB/s SD throughput.
+Default target: **320×240 @ 7 fps** → 153,600 bytes/frame → ~1.5 MB/s SD throughput.
 
-> **Frame rate limit:** the ESP32-S3 can sustain roughly **7–10 fps** for full-screen
+> **Frame rate limit:** the ESP32-S3 can sustain roughly **7 fps** for full-screen
 > 320×240 raw RGB565 video. Stay within this range — higher values will cause
 > the player to fall behind and stutter.
 

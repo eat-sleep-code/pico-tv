@@ -115,7 +115,7 @@ def main():
                     help='Max download resolution height (default: 480)')
     ap.add_argument('--width',  type=int, default=320)
     ap.add_argument('--height', type=int, default=240)
-    ap.add_argument('--fps',    type=int, default=8)
+    ap.add_argument('--fps',    type=int, default=7)
     ap.add_argument('--audioRate', type=int, default=16000)
     ap.add_argument('--removeVerticalBars', action='store_true',
                     help='Auto-crop pillarbox black bars before encoding')

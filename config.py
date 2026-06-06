@@ -70,7 +70,7 @@ AUDIO_EXT    = '.wav'
 # Use --removeVerticalBars in convert.py to crop-to-fill instead.
 VIDEO_W      = const(320)
 VIDEO_H      = const(240)
-VIDEO_FPS    = const(10)
+VIDEO_FPS    = const(7)    # 7 fps is the highest tested frame rate that can sustain 320×240 on this board without dropping frames.  Your mileage may vary; test with your own videos and adjust as needed.  Lowering the resolution to 160×120 or so should allow higher frame rates if desired.
 
 # Landscape display geometry (320×240 after rotation)
 DISPLAY_W    = const(320)   # = LCD_HEIGHT after 90° rotation
