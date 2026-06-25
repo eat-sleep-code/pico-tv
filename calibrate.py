@@ -76,7 +76,7 @@ for idx, name in enumerate(NAMES):
     print("  -> {}".format(xy))
     time.sleep(0.4)      # brief pause before next prompt
 
-# ── compute zone centres from 9 points ───────────────────────────────────────
+# ── compute zone centers from 9 points ───────────────────────────────────────
 # Grid indices:
 #   0  1  2
 #   3  4  5

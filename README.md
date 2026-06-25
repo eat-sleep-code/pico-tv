@@ -7,6 +7,8 @@ A CircuitPython port of the [Tiny TV](../tiny-tv) project for the
 > a reliable built-in SD card driver (`sdcardio`) — MicroPython's SD support
 > requires a third-party driver with significantly worse throughput.
 
+> [!IMPORTANT]
+> Frame Rate Limitation: Full-screen 320 × 240 RGB565 video is limited to approximately 7 fps on the ESP32-S3. This is a hardware limitation of the processor and display subsystem. Higher frame rates are not achievable at this resolution on current-generation ESP32-S3 hardware and may result in dropped frames or unstable playback.
 ---
 
 
@@ -91,7 +93,7 @@ Open `config.py` and check these two settings match your board:
 # Touch version (CST816D fitted)?  Set True for touch, False for non-touch.
 HAS_TOUCH = True
 
-# If colours look wrong after first boot, try 0x60 or 0xA0
+# If colors look wrong after first boot, try 0x60 or 0xA0
 LCD_ROTATION = 0x70
 ```
 
@@ -219,8 +221,8 @@ The screen is divided into four tap zones:
 |----------------|---------------------------------|-----------------|
 | Left strip     | x 0–80, y 0–240                 | Previous video  |
 | Right strip    | x 240–320, y 0–240              | Next video      |
-| Centre top     | x 80–240, y 0–120               | Volume +10      |
-| Centre bottom  | x 80–240, y 120–240             | Volume −10      |
+| Center top     | x 80–240, y 0–120               | Volume +10      |
+| Center bottom  | x 80–240, y 120–240             | Volume −10      |
 | Long press     | anywhere, hold 1.5 s            | Next category   |
 
 ### Physical button (GPIO 9)
@@ -271,7 +273,7 @@ Software volume (0–100) is applied per-chunk before the I2S write.
 
 | Symptom | Fix |
 |---------|-----|
-| Colours inverted | Change `LCD_ROTATION` in `config.py` from `0x70` → `0x60` |
+| Colors inverted | Change `LCD_ROTATION` in `config.py` from `0x70` → `0x60` |
 | Image mirrored / rotated wrong | Try `0xA0` or `0x00` |
 | Audio crackling | Increase `I2S_IBUF` in `config.py` (default 16 000 bytes) |
 | Frame rate dropping | Lower `--width`/`--height` in convert.py, or reduce `--fps` |
